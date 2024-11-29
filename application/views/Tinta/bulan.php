@@ -60,9 +60,9 @@
 												break;
 										}; ?>"><?= $s['warna'] ?></td>
 							<td><?= $s['tinta'] ?></td>
-							<td><?= number_format($s['terjual'], 0, ',', ',') ?></td>
-							<td><?= number_format($s['modal'], 0, ',', ',') ?></td>
-							<td><?= number_format($s['untung'], 0, ',', ',') ?></td>
+							<td><?= number_format($s['terjual'] ?? 0, 0, ',', ',') ?></td>
+							<td><?= number_format($s['modal'] ?? 0, 0, ',', ',') ?></td>
+							<td><?= number_format($s['untung'] ?? 0, 0, ',', ',') ?></td>
 							<td><?= $s['customer'] ?></td>
 							<td>
 								<a href="#" data-url="<?= base_url('tinta/bulan/' . $bulan['kode_bulan'] . '/hapus/' . $s['id'])  ?>" class="tombol-hapus btn btn-danger btn-sm "><i class="far fa-fw fa-trash-alt"></i></a>
@@ -77,9 +77,9 @@
 						<th scope="col">Total</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
-						<th scope="col"><?= number_format($total['terjual'], 0, ',', ',') ?></th>
-						<th scope="col"><?= number_format($total['modal'], 0, ',', ',') ?></th>
-						<th scope="col"><?= number_format($total['untung'], 0, ',', ',') ?></th>
+						<th scope="col"><?= number_format($total['terjual'] ?? 0, 0, ',', ',') ?></th>
+						<th scope="col"><?= number_format($total['modal'] ?? 0, 0, ',', ',') ?></th>
+						<th scope="col"><?= number_format($total['untung'] ?? 0, 0, ',', ',') ?></th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>

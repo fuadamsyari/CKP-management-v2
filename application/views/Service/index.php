@@ -20,8 +20,8 @@
 												<div class="col mr-2">
 													<div class="text font-weight-bold text-dark text-uppercase mb-1">
 														<?= ucfirst($bulan['bulan']) ?></div>
-													<div class="text-xs mb-0 font-weight-bold text-gray-600">Revenue : <?= number_format($bulan['total']['harga_jual'], 0, ',', ',') ?></div>
-													<div class="text-xs mb-0 font-weight-bold text-gray-600">Provit : <?= number_format($bulan['total']['laba'], 0, ',', ',') ?></div>
+													<div class="text-xs mb-0 font-weight-bold text-gray-600">Revenue : <?= number_format($bulan['total']['harga_jual'] ?? 0, 0, ',', ',') ?></div>
+													<div class="text-xs mb-0 font-weight-bold text-gray-600">Provit : <?= number_format($bulan['total']['laba'] ?? 0, 0, ',', ',') ?></div>
 												</div>
 												<div class="col-auto">
 													<a href="<?= base_url('service/bulan/' . $bulan['kode_bulan']) ?>" class="text-dark"><i class="fas fa-sign-in-alt fa-3x"></i></i></a>

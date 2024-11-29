@@ -21,7 +21,7 @@
 							<div class="col mr-2">
 								<div class="text font-weight-bold text-dark text-uppercase mb-1">
 									<?= ucfirst($bulan['bulan']) ?></div>
-								<div class="text-xs mb-0 font-weight-bold text-gray-600">Total Belanja : <?= number_format($bulan['total']['belanja_1'] + $bulan['total']['belanja_2'], 0, ',', ',')  ?></div>
+								<div class="text-xs mb-0 font-weight-bold text-gray-600">Total Belanja : <?= number_format($bulan['total']['belanja_1'] + $bulan['total']['belanja_2'] ?? 0, 0, ',', ',')  ?></div>
 							</div>
 							<div class="col-auto">
 								<a href="<?= base_url('belanja/bulan/' . $bulan['kode_bulan']) ?>" class="text-dark"><i class="fas fa-sign-in-alt fa-3x"></i></a>

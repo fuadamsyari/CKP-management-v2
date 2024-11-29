@@ -39,8 +39,8 @@
 						<tr>
 							<th scope="row"><?= ++$i; ?></th>
 							<td><?= $s['tanggal'] ?></td>
-							<td><?= number_format($s['belanja_1'], 0, ',', ',') ?></td>
-							<td><?= number_format($s['belanja_2'], 0, ',', ',') ?></td>
+							<td><?= number_format($s['belanja_1'] ?? 0, 0, ',', ',') ?></td>
+							<td><?= number_format($s['belanja_2'] ?? 0, 0, ',', ',') ?></td>
 							<td><?= $s['ket'] ?></td>
 							<td>
 								<a href="#" data-url="<?= base_url('belanja/bulan/' . $bulan['kode_bulan'] . '/hapus/' . $s['id'])  ?>" class="tombol-hapus btn btn-danger btn-sm "><i class="far fa-fw fa-trash-alt"></i></a>
@@ -53,8 +53,8 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Total</th>
-						<th scope="col"><?= number_format($total['belanja_1'], 0, ',', ',') ?></th>
-						<th scope="col"><?= number_format($total['belanja_2'], 0, ',', ',') ?></th>
+						<th scope="col"><?= number_format($total['belanja_1'] ?? 0, 0, ',', ',') ?></th>
+						<th scope="col"><?= number_format($total['belanja_2'] ?? 0, 0, ',', ',') ?></th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>

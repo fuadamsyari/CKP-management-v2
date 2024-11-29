@@ -52,15 +52,15 @@
 				<tbody class="">
 					<tr>
 						<td>Revenue</td>
-						<td class="text-right"><?= number_format($service['harga_jual'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($service['harga_jual'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Cost</td>
-						<td class="text-right"><?= number_format($service['nominal_blb'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($service['nominal_blb'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td class="font-weight-bold">Profit</td>
-						<td class="text-right"><?= number_format($service['laba'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($service['laba'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -75,15 +75,15 @@
 				<tbody class="">
 					<tr>
 						<td>Revenue</td>
-						<td class="text-right"><?= number_format($tinta['terjual'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($tinta['terjual'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Cost</td>
-						<td class="text-right"><?= number_format($tinta['modal'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($tinta['modal'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td class="font-weight-bold">Profit</td>
-						<td class="text-right"><?= number_format($tinta['untung'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($tinta['untung'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -102,16 +102,16 @@
 				<tbody class="">
 					<tr>
 						<td><?= $kasbon['fuad']['nama'] ?></td>
-						<td class="text-right"><?= number_format($kasbon['fuad']['kasbon'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($kasbon['fuad']['kasbon'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td><?= $kasbon['other']['nama'] ?></td>
-						<td class="text-right"><?= number_format($kasbon['other']['kasbon'], 0, ',', ',')  ?></td>
+						<td class="text-right"><?= number_format($kasbon['other']['kasbon'] ?? 0, 0, ',', ',')  ?></td>
 					</tr>
 
 					<tr>
 						<td class="font-weight-bold">Total</td>
-						<td class="text-right "><?= number_format($total_kasbon['kasbon'], 0, ',', ',') ?></td>
+						<td class="text-right "><?= number_format($total_kasbon['kasbon'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -126,11 +126,11 @@
 				<tbody class="">
 					<tr>
 						<td>Employe A</td>
-						<td class="text-right"><?= number_format($gaji, 0, ',', ',')  ?></td>
+						<td class="text-right"><?= number_format($gaji ?? 0, 0, ',', ',')  ?></td>
 					</tr>
 					<tr>
 						<td>Employe B</td>
-						<td class="text-right"><?= number_format($kuliah, 0, ',', ',')  ?></td>
+						<td class="text-right"><?= number_format($kuliah ?? 0, 0, ',', ',')  ?></td>
 					</tr>
 					<tr>
 						<td class="font-weight-bold">Sisa Saldo</td>
@@ -157,28 +157,28 @@
 				<tbody class="">
 					<tr>
 						<td>Opening Balance</td>
-						<td class="text-right"><?= number_format($sisa_saldo['nominal'], 0, ',', ',')   ?></td>
+						<td class="text-right"><?= number_format($sisa_saldo['nominal'] ?? 0, 0, ',', ',')   ?></td>
 					</tr>
 					<tr>
 						<td>Profit (Service)</td>
-						<td class="text-right"><?= number_format($service['laba'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($service['laba'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Revenue (Tinta)</td>
-						<td class="text-right"><?= number_format($tinta['terjual'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($tinta['terjual'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Cash Advance</td>
-						<td class="text-right"><?= number_format($total_kasbon['kasbon'], 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format($total_kasbon['kasbon'] ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Non-Salary Expenses</td>
-						<td class="text-right"><?= number_format(($belanja['belanja_1'] + $belanja['belanja_2']), 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format(($belanja['belanja_1'] + $belanja['belanja_2']) ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td class="font-weight-bold">Balance</td>
 						<td class="text-right">
-							<?= $total_saldo =  $total_saldo = number_format((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2']))), 0, ',', ',')
+							<?= $total_saldo =  $total_saldo = number_format((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2']))) ?? 0, 0, ',', ',')
 							?>
 						</td>
 					</tr>
@@ -198,19 +198,19 @@
 				<tbody class="">
 					<tr>
 						<td>Bank</td>
-						<td class="text-right"><?= number_format($ATM['nominal'], 0, ',', ',')   ?></td>
+						<td class="text-right"><?= number_format($ATM['nominal'] ?? 0, 0, ',', ',')   ?></td>
 					</tr>
 					<tr>
 						<td>Cash</td>
-						<td class="text-right"><?= number_format($Cash['nominal'], 0, ',', ',')   ?></td>
+						<td class="text-right"><?= number_format($Cash['nominal'] ?? 0, 0, ',', ',')   ?></td>
 					</tr>
 					<tr>
 						<td>Total</td>
-						<td class="text-right"><?= number_format(($ATM['nominal'] + $Cash['nominal']), 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format(($ATM['nominal'] + $Cash['nominal']) ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Reconciliation</td>
-						<td class="text-danger text-right"><?= number_format(((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($ATM['nominal'] + $Cash['nominal'])) * -1), 0, ',', ',') ?></td>
+						<td class="text-danger text-right"><?= number_format(((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($ATM['nominal'] + $Cash['nominal'])) * -1) ?? 0, 0, ',', ',') ?></td>
 					</tr>
 				</tbody>
 			</table>

@@ -57,7 +57,7 @@
 												break;
 										}; ?>"><?= $s['warna'] ?></td>
 							<td><?= $s['tinta'] ?></td>
-							<td><?= number_format($s['modal'], 0, ',', ',') ?></td>
+							<td><?= number_format($s['modal'] ?? 0, 0, ',', ',') ?></td>
 							<td>
 								<a href="#" data-url="<?= base_url('potinta/show/' . $po_list['po_ke'] . '/hapus/' . $s['id'])  ?>" class="tombol-hapus btn btn-danger btn-sm "><i class="far fa-fw fa-trash-alt"></i></a>
 								<a href="<?= base_url('potinta/show/'  . $po_list['po_ke'] . '/ubah/' . $s['id']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-fw fa-edit"></i></a>
@@ -70,7 +70,7 @@
 						<th scope="col">Total</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
-						<th scope="col"><?= number_format($total['modal'], 0, ',', ',') ?></th>
+						<th scope="col"><?= number_format($total['modal'] ?? 0, 0, ',', ',') ?></th>
 						<th scope="col"></th>
 					</tr>
 				</thead>

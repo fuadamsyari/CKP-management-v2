@@ -52,11 +52,11 @@
 								<td><?= $s['alamat'] ?></td>
 								<td><?= $s['barang'] ?></td>
 								<td><?= $s['blb'] ?></td>
-								<td><?= number_format($s['nominal_blb'], 0, ',', ',') ?></td>
-								<td><?= number_format($s['harga_jual'], 0, ',', ',') ?></td>
-								<td><?= number_format($s['laba'], 0, ',', ',') ?></td>
+								<td><?= number_format($s['nominal_blb'] ?? 0, 0, ',', ',') ?></td>
+								<td><?= number_format($s['harga_jual'] ?? 0, 0, ',', ',') ?></td>
+								<td><?= number_format($s['laba'] ?? 0, 0, ',', ',') ?></td>
 								<td><?= $s['ket'] ?></td>
-								<td><?= number_format($s['nota'], 0, ',', ',') ?></td>
+								<td><?= number_format($s['nota'] ?? 0, 0, ',', ',') ?></td>
 								<td>
 									<a href="#" data-url="<?= base_url('service/bulan/' . $bulan['kode_bulan'] . '/hapus/' . $s['id'])  ?>" class="tombol-hapus btn btn-danger btn-sm "><i class="far fa-fw fa-trash-alt"></i></a>
 									<a href="<?= base_url('service/bulan/'  . $bulan['kode_bulan'] . '/ubah/' . $s['id']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-fw fa-edit"></i></a>
@@ -72,11 +72,11 @@
 							<th scope="col"></th>
 							<th scope="col"></th>
 							<th scope="col"></th>
-							<th scope="col"><?= number_format($total['nominal_blb'], 0, ',', ',') ?></th>
-							<th scope="col"><?= number_format($total['harga_jual'], 0, ',', ',') ?></th>
-							<th scope="col"><?= number_format($total['laba'], 0, ',', ',') ?></th>
+							<th scope="col"><?= number_format($total['nominal_blb'] ?? 0, 0, ',', ',') ?></th>
+							<th scope="col"><?= number_format($total['harga_jual'] ?? 0, 0, ',', ',') ?></th>
+							<th scope="col"><?= number_format($total['laba'] ?? 0, 0, ',', ',') ?></th>
 							<th scope="col"></th>
-							<th scope="col"><?= number_format($total['nota'], 0, ',', ',')  ?></th>
+							<th scope="col"><?= number_format($total['nota'] ?? 0, 0, ',', ',')  ?></th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
