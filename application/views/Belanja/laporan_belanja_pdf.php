@@ -42,8 +42,8 @@
 				<tr>
 					<td><?= $i++ ?></td>
 					<td><?= $b['tanggal'] ?></td>
-					<td><?= number_format($b['belanja_1'], 0, ',', ',') ?></td>
-					<td><?= number_format($b['belanja_2'], 0, ',', ',') ?></td>
+					<td><?= number_format($b['belanja_1'] ?? 0, 0, ',', ',') ?></td>
+					<td><?= number_format($b['belanja_2'] ?? 0, 0, ',', ',') ?></td>
 					<td><?= $b['ket'] ?></td>
 				</tr>
 			<?php endforeach ?>
@@ -51,8 +51,8 @@
 		<tfoot>
 			<tr>
 				<th colspan="2">Total</th>
-				<th><?= number_format($total['belanja_1'], 0, ',', ',') ?></th>
-				<th><?= number_format($total['belanja_2'], 0, ',', ',') ?></th>
+				<th><?= number_format($total['belanja_1'] ?? 0, 0, ',', ',') ?></th>
+				<th><?= number_format($total['belanja_2'] ?? 0, 0, ',', ',') ?></th>
 				<th></th>
 			</tr>
 		</tfoot>

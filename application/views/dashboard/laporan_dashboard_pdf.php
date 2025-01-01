@@ -84,15 +84,15 @@
 		<table>
 			<tr>
 				<th>Revenue</th>
-				<td>Rp <?= number_format($service['harga_jual'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($service['harga_jual'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Cost</th>
-				<td>Rp <?= number_format($service['nominal_blb'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($service['nominal_blb'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Profit</th>
-				<td class="highlight">Rp <?= number_format($service['laba'], 0, ',', ',') ?></td>
+				<td class="highlight">Rp <?= number_format($service['laba'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 		</table>
 	</div>
@@ -102,15 +102,15 @@
 		<table>
 			<tr>
 				<th>Revenue</th>
-				<td>Rp <?= number_format($tinta['terjual'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($tinta['terjual'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Cost</th>
-				<td>Rp <?= number_format($tinta['modal'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($tinta['modal'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Profit</th>
-				<td class="highlight">Rp <?= number_format($tinta['untung'], 0, ',', ',') ?></td>
+				<td class="highlight">Rp <?= number_format($tinta['untung'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 		</table>
 	</div>
@@ -120,15 +120,15 @@
 		<table>
 			<tr>
 				<th>Employee A</th>
-				<td>Rp <?= number_format($kasbon['fuad']['kasbon'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($kasbon['fuad']['kasbon'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Employee B</th>
-				<td>Rp <?= number_format($kasbon['other']['kasbon'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($kasbon['other']['kasbon'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Total Cash Advance</th>
-				<td class="highlight">Rp <?= number_format($total_kasbon['kasbon'], 0, ',', ',') ?></td>
+				<td class="highlight">Rp <?= number_format($total_kasbon['kasbon'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 		</table>
 	</div>
@@ -138,15 +138,15 @@
 		<table>
 			<tr>
 				<th>Employee A</th>
-				<td>Rp <?= number_format($gaji, 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($gaji ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Employee B</th>
-				<td>Rp <?= number_format($kuliah, 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($kuliah ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Remaining Balance</th>
-				<td class="highlight">Rp <?= number_format(($sisa_saldo['nominal'] + $service['harga_jual'] + $tinta['untung']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($gaji + $kuliah), 0, ',', ',') ?></td>
+				<td class="highlight">Rp <?= number_format(($sisa_saldo['nominal'] + $service['harga_jual'] + $tinta['untung']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($gaji + $kuliah) ?? 0, 0, ',', ',') ?></td>
 			</tr>
 		</table>
 	</div>
@@ -156,27 +156,27 @@
 		<table>
 			<tr>
 				<th>Opening Balance</th>
-				<td>Rp <?= number_format($sisa_saldo['nominal'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($sisa_saldo['nominal'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Profit (Service)</th>
-				<td>Rp <?= number_format($service['laba'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($service['laba'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Revenue (Tinta)</th>
-				<td>Rp <?= number_format($tinta['terjual'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($tinta['terjual'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Cash Advance</th>
-				<td>Rp <?= number_format($total_kasbon['kasbon'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($total_kasbon['kasbon'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Non-Salary Expenses</th>
-				<td>Rp <?= number_format(($belanja['belanja_1'] + $belanja['belanja_2']), 0, ',', ',') ?></td>
+				<td>Rp <?= number_format(($belanja['belanja_1'] + $belanja['belanja_2']) ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Balance</th>
-				<td class="highlight">Rp <?= number_format((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2']))), 0, ',', ',') ?></td>
+				<td class="highlight">Rp <?= number_format((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2']))) ?? 0, 0, ',', ',') ?></td>
 			</tr>
 		</table>
 	</div>
@@ -186,19 +186,19 @@
 		<table>
 			<tr>
 				<th>Bank</th>
-				<td>Rp <?= number_format($ATM['nominal'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($ATM['nominal'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Cash</th>
-				<td>Rp <?= number_format($Cash['nominal'], 0, ',', ',') ?></td>
+				<td>Rp <?= number_format($Cash['nominal'] ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Total</th>
-				<td class="highlight">Rp <?= number_format(($ATM['nominal'] + $Cash['nominal']), 0, ',', ',') ?></td>
+				<td class="highlight">Rp <?= number_format(($ATM['nominal'] + $Cash['nominal']) ?? 0, 0, ',', ',') ?></td>
 			</tr>
 			<tr>
 				<th>Reconciliation</th>
-				<td class="highlight text-danger">Rp <?= number_format(((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($ATM['nominal'] + $Cash['nominal'])) * -1), 0, ',', ',') ?></td>
+				<td class="highlight text-danger">Rp <?= number_format(((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($ATM['nominal'] + $Cash['nominal'])) * -1) ?? 0, 0, ',', ',') ?></td>
 			</tr>
 		</table>
 	</div>

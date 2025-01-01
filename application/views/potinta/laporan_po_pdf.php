@@ -44,14 +44,14 @@
 					<td><?= $i++ ?></td>
 					<td><?= $s['warna'] ?></td>
 					<td><?= $s['tinta'] ?></td>
-					<td><?= number_format($s['modal'], 0, ',', ',') ?></td>
+					<td><?= number_format($s['modal'] ?? 0, 0, ',', ',') ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
 		<tfoot>
 			<tr>
 				<th colspan="3">Total</th>
-				<th><?= number_format($total['modal'], 0, ',', ',') ?></th>
+				<th><?= number_format($total['modal'] ?? 0, 0, ',', ',') ?></th>
 			</tr>
 		</tfoot>
 	</table>

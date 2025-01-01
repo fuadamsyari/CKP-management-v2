@@ -53,20 +53,20 @@
 					<td><?= $s['alamat'] ?></td>
 					<td><?= $s['barang'] ?></td>
 					<td><?= $s['blb'] ?></td>
-					<td><?= number_format($s['nominal_blb'], 0, ',', ',') ?></td>
-					<td><?= number_format($s['harga_jual'], 0, ',', ',') ?></td>
-					<td><?= number_format($s['laba'], 0, ',', ',') ?></td>
+					<td><?= number_format($s['nominal_blb'] ?? 0, 0, ',', ',') ?></td>
+					<td><?= number_format($s['harga_jual'] ?? 0, 0, ',', ',') ?></td>
+					<td><?= number_format($s['laba'] ?? 0, 0, ',', ',') ?></td>
 					<td><?= $s['ket'] ?></td>
-					<td><?= number_format($s['nota'], 0, ',', ',') ?></td>
+					<td><?= number_format($s['nota'] ?? 0, 0, ',', ',') ?></td>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
 		<tfoot>
 			<tr>
 				<th colspan="6">Total</th>
-				<th><?= number_format($total['nominal_blb'], 0, ',', ',') ?></th>
-				<th><?= number_format($total['harga_jual'], 0, ',', ',') ?></th>
-				<th><?= number_format($total['laba'], 0, ',', ',') ?></th>
+				<th><?= number_format($total['nominal_blb'] ?? 0, 0, ',', ',') ?></th>
+				<th><?= number_format($total['harga_jual'] ?? 0, 0, ',', ',') ?></th>
+				<th><?= number_format($total['laba'] ?? 0, 0, ',', ',') ?></th>
 				<th colspan="2"></th>
 			</tr>
 		</tfoot>

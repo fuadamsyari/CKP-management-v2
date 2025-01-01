@@ -47,9 +47,9 @@
 					<td><?= $t['tanggal'] ?></td>
 					<td><?= $t['warna'] ?></td>
 					<td><?= $t['tinta'] ?></td>
-					<td><?= number_format($t['terjual'], 0, ',', ',') ?></td>
-					<td><?= number_format($t['modal'], 0, ',', ',') ?></td>
-					<td><?= number_format($t['untung'], 0, ',', ',') ?></td>
+					<td><?= number_format($t['terjual'] ?? 0, 0, ',', ',') ?></td>
+					<td><?= number_format($t['modal'] ?? 0, 0, ',', ',') ?></td>
+					<td><?= number_format($t['untung'] ?? 0, 0, ',', ',') ?></td>
 					<td><?= $t['customer'] ?></td>
 				</tr>
 			<?php endforeach ?>
@@ -57,9 +57,9 @@
 		<tfoot>
 			<tr>
 				<th colspan="4">Total</th>
-				<th><?= number_format($total['terjual'], 0, ',', ',') ?></th>
-				<th><?= number_format($total['modal'], 0, ',', ',') ?></th>
-				<th><?= number_format($total['untung'], 0, ',', ',') ?></th>
+				<th><?= number_format($total['terjual'] ?? 0, 0, ',', ',') ?></th>
+				<th><?= number_format($total['modal'] ?? 0, 0, ',', ',') ?></th>
+				<th><?= number_format($total['untung'] ?? 0, 0, ',', ',') ?></th>
 				<th></th>
 			</tr>
 		</tfoot>
