@@ -197,20 +197,24 @@
 				</thead>
 				<tbody class="">
 					<tr>
-						<td>Bank</td>
-						<td class="text-right"><?= number_format($ATM['nominal'] ?? 0, 0, ',', ',')   ?></td>
+						<td>Bank BRI</td>
+						<td class="text-right"><?= number_format($BRI['nominal'] ?? 0, 0, ',', ',')   ?></td>
+					</tr>
+					<tr>
+						<td>Bank BPD</td>
+						<td class="text-right"><?= number_format($BPD['nominal'] ?? 0, 0, ',', ',')   ?></td>
 					</tr>
 					<tr>
 						<td>Cash</td>
-						<td class="text-right"><?= number_format($Cash['nominal'] ?? 0, 0, ',', ',')   ?></td>
+						<td class="text-right"><?= number_format($cash['nominal'] ?? 0, 0, ',', ',')   ?></td>
 					</tr>
 					<tr>
 						<td>Total</td>
-						<td class="text-right"><?= number_format(($ATM['nominal'] + $Cash['nominal']) ?? 0, 0, ',', ',') ?></td>
+						<td class="text-right"><?= number_format(($BRI['nominal'] + $BPD['nominal'] + $cash['nominal']) ?? 0, 0, ',', ',') ?></td>
 					</tr>
 					<tr>
 						<td>Reconciliation</td>
-						<td class="text-danger text-right"><?= number_format(((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($ATM['nominal'] + $Cash['nominal'])) * -1) ?? 0, 0, ',', ',') ?></td>
+						<td class="text-danger text-right"><?= number_format(((($sisa_saldo['nominal'] + $service['laba'] + $tinta['terjual']) - ($total_kasbon['kasbon'] + ($belanja['belanja_1'] + $belanja['belanja_2'])) - ($BRI['nominal'] + $BPD['nominal'] + $cash['nominal'])) * -1) ?? 0, 0, ',', ',') ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -273,10 +277,12 @@
 			</div>
 			<form action="<?= base_url('dashboard/ubahsaldo') ?>" method="post">
 				<div class="modal-body">
-					<label for="saldo_ATM">Saldo ATM</label>
-					<input name="ATM" id="saldo_ATM" class="form-control form-control-sm" type="text" placeholder="<?= $ATM['nominal']  ?>" value=" <?= $ATM['nominal']  ?>">
+					<label for="saldo_BRI">Saldo BRI</label>
+					<input name="BRI" id="saldo_BRI" class="form-control form-control-sm" type="text" placeholder="<?= $BRI['nominal']  ?>" value=" <?= $BRI['nominal']  ?>">
+					<label for="saldo_BPD">Saldo BPD</label>
+					<input name="BPD" id="saldo_BPD" class="form-control form-control-sm" type="text" placeholder="<?= $BPD['nominal'] ?>" value="<?= $BPD['nominal']  ?>">
 					<label for="saldo_cash">Saldo Cash</label>
-					<input name="Cash" id="saldo_cash" class="form-control form-control-sm" type="text" placeholder="<?= $Cash['nominal'] ?>" value="<?= $Cash['nominal']  ?>">
+					<input name="cash" id="saldo_cash" class="form-control form-control-sm" type="text" placeholder="<?= $cash['nominal'] ?>" value="<?= $cash['nominal']  ?>">
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

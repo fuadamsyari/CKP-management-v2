@@ -29,8 +29,9 @@ class Dashboard extends CI_Controller
 		$data['belanja'] = $this->Belanja_model->getTotal($bulan);
 		$data['total_kasbon'] = $this->Kasbon_model->getTotal($bulan);
 		$data['sisa_saldo'] = $this->db->get_where('saldo', ['saldo' => 'Sisa Saldo'])->row_array();
-		$data['ATM'] = $this->db->get_where('saldo', ['saldo' => 'ATM'])->row_array();
-		$data['Cash'] = $this->db->get_where('saldo', ['saldo' => 'Cash'])->row_array();
+		$data['BRI'] = $this->db->get_where('saldo', ['saldo' => 'BRI'])->row_array();
+		$data['BPD'] = $this->db->get_where('saldo', ['saldo' => 'BPD'])->row_array();
+		$data['cash'] = $this->db->get_where('saldo', ['saldo' => 'cash'])->row_array();
 		$data['kasbon'] = [
 			'fuad' => $this->db->get_where('kasbon', ['id' => 1])->row_array(),
 			'other' => $this->db->get_where('kasbon', ['id' => 2])->row_array()

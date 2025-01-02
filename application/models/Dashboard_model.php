@@ -10,12 +10,15 @@ final class Dashboard_model extends CI_Model
 	}
 	public function ubahsaldo()
 	{
-		$id2 = $this->input->get_post('ATM');
-		$id3 = $this->input->get_post('Cash');
-		$id2 = !empty($id2) ? $id2 : 0;
-		$id3 = !empty($id3) ? $id3 : 0;
-		$this->db->query("UPDATE saldo SET nominal = $id2 WHERE saldo.id = 2");
-		$this->db->query("UPDATE saldo SET nominal = $id3 WHERE saldo.id = 3");
+		$BRI = $this->input->get_post('BRI');
+		$BPD = $this->input->get_post('BPD');
+		$cash = $this->input->get_post('cash');
+		$BRI = !empty($BRI) ? $BRI : 0;
+		$BPD = !empty($BPD) ? $BPD : 0;
+		$cash = !empty($cash) ? $cash : 0;
+		$this->db->query("UPDATE saldo SET nominal = $BRI WHERE saldo.saldo = 'BRI'");
+		$this->db->query("UPDATE saldo SET nominal = $BPD WHERE saldo.saldo = 'BPD'");
+		$this->db->query("UPDATE saldo SET nominal = $cash WHERE saldo.saldo = 'cash'");
 	}
 	public function ubahkasbon()
 	{
