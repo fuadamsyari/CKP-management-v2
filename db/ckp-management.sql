@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 14 Nov 2024 pada 13.12
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.0.25
+-- Host: localhost:3306
+-- Waktu pembuatan: 02 Jan 2025 pada 13.06
+-- Versi server: 8.0.30
+-- Versi PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bt_selected` (
-  `id` int(11) NOT NULL,
-  `bt` varchar(128) NOT NULL,
-  `bulan` varchar(128) NOT NULL,
-  `tahun` int(128) NOT NULL
+  `id` int NOT NULL,
+  `bt` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `bulan` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `tahun` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `bt_selected` (
 --
 
 INSERT INTO `bt_selected` (`id`, `bt`, `bulan`, `tahun`) VALUES
-(1, '01', 'BULAN', 2024);
+(1, '01', 'BULAN', 2025);
 
 -- --------------------------------------------------------
 
@@ -48,9 +48,9 @@ INSERT INTO `bt_selected` (`id`, `bt`, `bulan`, `tahun`) VALUES
 --
 
 CREATE TABLE `bulan_tahun` (
-  `id` int(11) NOT NULL,
-  `kode_bulan` varchar(4) NOT NULL,
-  `bulan` varchar(128) NOT NULL
+  `id` int NOT NULL,
+  `kode_bulan` varchar(4) COLLATE utf8mb4_general_ci NOT NULL,
+  `bulan` varchar(128) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -78,12 +78,12 @@ INSERT INTO `bulan_tahun` (`id`, `kode_bulan`, `bulan`) VALUES
 --
 
 CREATE TABLE `daftar_belanja` (
-  `id` int(11) NOT NULL,
-  `tanggal` varchar(10) NOT NULL,
-  `belanja_1` int(128) NOT NULL,
-  `belanja_2` int(128) NOT NULL,
-  `ket` varchar(128) NOT NULL,
-  `bt` varchar(128) NOT NULL
+  `id` int NOT NULL,
+  `tanggal` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `belanja_1` int NOT NULL,
+  `belanja_2` int NOT NULL,
+  `ket` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `bt` varchar(128) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -93,9 +93,9 @@ CREATE TABLE `daftar_belanja` (
 --
 
 CREATE TABLE `kasbon` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
-  `kasbon` int(128) NOT NULL
+  `id` int NOT NULL,
+  `nama` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `kasbon` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -113,9 +113,9 @@ INSERT INTO `kasbon` (`id`, `nama`, `kasbon`) VALUES
 --
 
 CREATE TABLE `po_list` (
-  `id` int(11) NOT NULL,
-  `po_ke` varchar(128) NOT NULL,
-  `tgl_po` varchar(10) NOT NULL
+  `id` int NOT NULL,
+  `po_ke` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `tgl_po` varchar(10) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -125,11 +125,11 @@ CREATE TABLE `po_list` (
 --
 
 CREATE TABLE `po_tinta` (
-  `id` int(11) NOT NULL,
-  `warna` varchar(1) NOT NULL,
-  `tinta` varchar(10) NOT NULL,
-  `modal` int(6) NOT NULL,
-  `po_ke` varchar(128) NOT NULL
+  `id` int NOT NULL,
+  `warna` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
+  `tinta` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `modal` int NOT NULL,
+  `po_ke` varchar(128) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -139,9 +139,9 @@ CREATE TABLE `po_tinta` (
 --
 
 CREATE TABLE `saldo` (
-  `id` int(11) NOT NULL,
-  `saldo` varchar(128) NOT NULL,
-  `nominal` int(11) NOT NULL
+  `id` int NOT NULL,
+  `saldo` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `nominal` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -150,8 +150,9 @@ CREATE TABLE `saldo` (
 
 INSERT INTO `saldo` (`id`, `saldo`, `nominal`) VALUES
 (1, 'Sisa Saldo', 0),
-(2, 'ATM', 18000000),
-(3, 'Cash', 6200000);
+(2, 'BRI', 0),
+(3, 'BPD', 0),
+(4, 'Cash', 0);
 
 -- --------------------------------------------------------
 
@@ -160,18 +161,18 @@ INSERT INTO `saldo` (`id`, `saldo`, `nominal`) VALUES
 --
 
 CREATE TABLE `service` (
-  `id` int(11) NOT NULL,
-  `tanggal` varchar(128) NOT NULL,
-  `customer` varchar(128) NOT NULL,
-  `alamat` varchar(128) NOT NULL,
-  `barang` varchar(128) NOT NULL,
-  `blb` varchar(128) NOT NULL,
-  `nominal_blb` int(128) NOT NULL,
-  `harga_jual` int(128) NOT NULL,
-  `laba` int(128) NOT NULL,
-  `ket` varchar(128) NOT NULL,
-  `nota` int(128) NOT NULL,
-  `bt` varchar(128) NOT NULL
+  `id` int NOT NULL,
+  `tanggal` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `customer` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `barang` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `blb` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `nominal_blb` int NOT NULL,
+  `harga_jual` int NOT NULL,
+  `laba` int NOT NULL,
+  `ket` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `nota` int NOT NULL,
+  `bt` varchar(128) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -181,15 +182,15 @@ CREATE TABLE `service` (
 --
 
 CREATE TABLE `tinta` (
-  `id` int(11) NOT NULL,
-  `tanggal` varchar(128) NOT NULL,
-  `warna` varchar(2) NOT NULL,
-  `tinta` varchar(128) NOT NULL,
-  `terjual` int(128) NOT NULL,
-  `modal` int(128) NOT NULL,
-  `untung` int(128) NOT NULL,
-  `customer` varchar(128) NOT NULL,
-  `bt` varchar(128) NOT NULL
+  `id` int NOT NULL,
+  `tanggal` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `warna` varchar(2) COLLATE utf8mb4_general_ci NOT NULL,
+  `tinta` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `terjual` int NOT NULL,
+  `modal` int NOT NULL,
+  `untung` int NOT NULL,
+  `customer` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `bt` varchar(128) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -258,55 +259,55 @@ ALTER TABLE `tinta`
 -- AUTO_INCREMENT untuk tabel `bt_selected`
 --
 ALTER TABLE `bt_selected`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `bulan_tahun`
 --
 ALTER TABLE `bulan_tahun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `daftar_belanja`
 --
 ALTER TABLE `daftar_belanja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `kasbon`
 --
 ALTER TABLE `kasbon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `po_list`
 --
 ALTER TABLE `po_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `po_tinta`
 --
 ALTER TABLE `po_tinta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `saldo`
 --
 ALTER TABLE `saldo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tinta`
 --
 ALTER TABLE `tinta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
